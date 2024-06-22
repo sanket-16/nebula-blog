@@ -37,7 +37,5 @@ blogsRouter.get("/:id", getBlog);
 mongoose.connect(process.env.MONGODB);
 
 app.use("/blogs", blogsRouter);
-
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-});
+app.use("/.netlify/functions/api", router);
+export default serverless(app);
