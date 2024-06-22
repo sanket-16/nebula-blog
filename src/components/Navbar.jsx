@@ -5,6 +5,7 @@ const Navbar = () => {
       <h3>
         <Link to="/">Nebula Blog</Link>
       </h3>
+      <Link to="add-blog">Add Blog</Link>
     </nav>
   );
 };

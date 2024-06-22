@@ -6,7 +6,6 @@ const Card = ({ id, image, title, date, author }) => {
       <img className="card-img" src={image} alt={title + "img"} />
       <div className="title">
         <h3>{title}</h3>
-        <p className="date">{date.toLocaleString()}</p>
         <p className="author">By {author}</p>
       </div>
     </Link>

@@ -21,6 +21,7 @@ a {
   text-decoration: none;
   color: black;
 }
+
 button {
   border-radius: 8px;
   border: 1px solid transparent;
@@ -28,16 +29,24 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
   cursor: pointer;
-  transition: border-color 0.25s;
+  transition: all 0.25s;
 }
 button:hover {
-  border-color: #646cff;
+  opacity: 60%;
 }
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
+}
+
+.icon-button {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+}
+.full-width {
+  width: 94%;
 }
 
 nav {
@@ -52,6 +61,16 @@ nav {
 nav h3:hover {
   opacity: 50%;
   transition: all;
+}
+
+footer {
+  width: 100%;
+  font-weight: bold;
+  padding: 2em;
+  border-top: black solid 1px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .card {
@@ -93,4 +112,112 @@ nav h3:hover {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 2em;
+}
+
+.add-blog {
+  padding: 2em 0em;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  padding: 1em 0em;
+}
+
+.input-group input {
+  padding: 1em;
+  font-size: 1em;
+}
+
+.input-group textarea {
+  padding: 1em;
+  font-size: 1em;
+  height: 10em;
+}
+
+.lime-light {
+  font-size: 1em;
+  font-weight: bold;
+  width: 80vw;
+  height: 50vh;
+  display: flex;
+  place-items: center;
+  justify-content: center;
+}
+
+.blog {
+  padding: 1em 0em;
+  padding-bottom: 4em;
+}
+
+.blog img {
+  width: 100%;
+  border-radius: 0.5em;
+}
+
+.blog .content {
+  white-space: pre-wrap;
+}
+
+.blog .author-container {
+  padding: 1em 0em 4em 0em;
+}
+
+.blog .author-container .author-buttons {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+}
+
+.blog .author {
+  font-weight: bold;
+  opacity: 60%;
+}
+
+.popup-backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  z-index: 100;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  place-items: center;
+  justify-content: center;
+}
+.popup {
+  background: #fff;
+  border-radius: 0.5em;
+  padding: 2em;
+  height: 60vh;
+  width: 60vw;
+}
+
+.popup .title {
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.popup .link {
+  background: #d1d1d9;
+  padding: 2em;
+  margin: 2em;
+  border-radius: 0.5em;
+}
+
+@media only screen and (max-width: 600px) {
+  :root {
+    padding: 0em 2em;
+  }
+  .blogs {
+    grid-template-columns: 1fr;
+  }
+}
+
+.close {
+  cursor: pointer;
+  font-size: 2em;
 }
