@@ -13,16 +13,6 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // parse application/json
 app.use(bodyParser.json());
 app.use(cors());
-app.use(
-  "/",
-  express.static("public", {
-    setHeaders: (res, path) => {
-      if (path.endsWith(".js")) {
-        res.setHeader("Content-Type", "text/javascript");
-      }
-    },
-  })
-);
 
 app.get("/", (_, res) => {
   res.json({ message: "App working properly." });
@@ -37,5 +27,8 @@ blogsRouter.get("/:id", getBlog);
 mongoose.connect(process.env.MONGODB);
 
 app.use("/blogs", blogsRouter);
-app.use("/.netlify/functions/api", router);
+app.use("/", (req, res) =>
+  res.sendFile(path.join(__dirname, "../public/index.html"))
+);
+
 export default serverless(app);
