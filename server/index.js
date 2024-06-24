@@ -16,7 +16,7 @@ const corsOptions = {
   origin: process.env.ORIGIN,
   optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
 };
-
+app.options("*", cors(corsOptions));
 app.use(cors(corsOptions));
 app.get("/", (_, res) => {
   res.json({ message: "App working properly." });
