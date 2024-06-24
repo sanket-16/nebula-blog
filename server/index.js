@@ -7,7 +7,7 @@ import cors from "cors";
 
 dotenv.config();
 const app = express();
-const PORT = 8000;
+const PORT = process.env.PORT || 8000;
 app.use(bodyParser.urlencoded({ extended: false }));
 
 // parse application/json
@@ -27,8 +27,6 @@ blogsRouter.get("/:id", getBlog);
 mongoose.connect(process.env.MONGODB);
 
 app.use("/blogs", blogsRouter);
-app.use("/", (req, res) =>
-  res.sendFile(path.join(__dirname, "../public/index.html"))
-);
 
-export default serverless(app);
+app.listen(PORT, () => console.log("app running successfully."));
+export default app;
