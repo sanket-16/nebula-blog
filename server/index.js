@@ -13,14 +13,14 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // parse application/json
 app.use(bodyParser.json());
 
+const corsOptions = {
+  origin: process.env.ORIGIN,
+  optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
+  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+};
 app.options("*", cors(corsOptions));
-app.use(
-  cors({
-    origin: process.env.ORIGIN,
-    optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
-    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-  })
-);
+app.use(cors(corsOptions));
+
 app.get("/", (_, res) => {
   res.json({ message: "App working properly." });
 });
